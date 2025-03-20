@@ -1,0 +1,37 @@
+//1er Import des variables et mixins
+@use"../assets/abstracts/variables" as*;
+@use "../assets/abstracts/mixins" as*;
+@use"../assets/abstracts/functions" as*;
+@use"../assets/abstracts/colors" as*;
+@use"../assets/abstracts/typography" as*;
+
+//Import des bases
+@use"../assets/base/reset" as*;
+@use"../assets/base/reset-typography" as*;
+@use"../assets/base/global" as*;
+
+// Import des layouts
+@use"../assets/layout/header" as*;
+@use"../assets/layout/footer" as*;
+@use"../assets/layout/grid" as*;
+@use"../assets/layout/forms" as*;
+
+//Import des composants
+@use"../assets/components/buttons/primary" as*;
+@use"../assets/components/buttons/secondary" as*;
+@use"../assets/components/cards/product-card" as*;
+@use"../assets/components/modals/modal" as*;
+
+//Import des pages spécifiques
+@use"../assets/pages/home" as*;
+@use"../assets/pages/about" as*;
+@use"../assets/pages/contact" as*;
+
+//Import des thèmes
+@use"../assets/themes/light" as*;
+@use"../assets/themes/dark" as*;
+
+//Import des utilitaires
+@use"../assets/utils/animations" as*;
+@use"../assets/utils/spacing" as*;
+@use"../assets/utils/accessibilitiy" as*;

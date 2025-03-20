@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>My Market</title>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo mb-5">
+      <img src="assets/images/icons/logo-my-market.png" alt="My Market" />
+    </div>
+    <nav>
+        <ul class="flex-column mt-5">
+        <li class="nav-item"><a class="nav-link text-light" href="#"><img src="assets/images/icons/file-text.png" alt="icons Comptabilité" class="me-2">Comptabilité</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="#"><img src="assets/images/icons/shopping-bag.png" alt="icons produit" class="me-2">Produits</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="#"><img src="assets/images/icons/truck.png" alt="icons Fournisseurs" class="me-2">Fournisseurs</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="#"><img src="assets/images/icons/archive.png" alt="icons Commandes" class="me-2">Commandes</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="#"><img src="assets/images/icons/settings.png" alt="icons Paramètres" class="me-2">Paramètres</a></li>
+        </ul>
+    </nav>
+  </div>
+  <div class="content">
+    <div class="liste-des-produits mb-5">
+      <div class="bg-danger text-light p-3 mr-5">
+        <h2>Liste des produits</h2>
+      </div> 
+    <div class="container">    
+        <div class="mb-5 mt-5">
+          <div class="d-flex justify-content-center align-items-center"><!-- Barre de recherche -->
+            <input type="text" id="rechercher" class="form-control w-50" placeholder="Rechercher..."/>
+            <span class="input-group-text" id="basic-addon1">
+              <img src="assets/images/icons/search.png" alt="Recherche" ">
+            </span>
+            <!-- Bouton Ajouter à droite -->
+            <button id="btnAjouter" class="btn btn-danger ms-3"><img src="assets/images/icons/plus.png" alt="plus ajouter"> Ajouter</button>
+          </div>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Référence</th>
+              <th>Catégorie</th>
+              <th>Libellé</th>
+              <th>Prix</th>
+              <th>En Stock</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="listeProduits">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="modalAjout" class="modal-custom">                          <!--modal en html ajouter -->
+    <div class="modal-content-custom">
+      <div class="bg-danger p-3 mr-5">
+        <span id="fermerModal" class="close-btn btn ms-3 border-light text-light mr-5"><img src="assets/images/icons/back-arrow.png" alt="Retour au produit">Retour</span>
+      <h2 id="titreModal" class="text-light">Ajouter un produit</h2>
+      </div>
+      <form id="formProduits" class="d-flex">
+        <div class="col-4 m-5">
+          <div class="mb-3">
+            <label for="reference" class="form-label">Référence</label>
+            <input type="text" id="reference" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="categorie" class="form-label">Catégorie</label>
+            <select id="categorie" class="form-select">
+              <option value="">Choisir la catégorie</option>
+              <option value="tablettes">Tablettes</option>
+              <option value="Téléphones">Téléphones</option>
+              <option value="télévisions">Télévisions</option>
+              <option value="Audio">Audio</option>
+              <option value="Appareils photo">Appareils photo</option>
+              <option value="Ordinateurs de bureau">Ordinateurs de bureau</option>
+              <option value="Ordinateurs portables">Ordinateurs portables</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="libelle" class="form-label">Libellé</label>
+            <input type="text" id="libelle" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="prix" class="form-label">Prix de vente conseillé</label>
+            <input type="text" id="prix" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="photo" class="form-label">Photos</label>
+            <input type="text" id="photo" class="form-control" />
+          </div>
+        </div>
+        <div class="col-4 m-5">
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" id="description" class="form-control" />
+          </div>
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="enStock" />
+            <label class="form-check-label" for="enStock">En stock</label>
+          </div>
+          <button id="enregistrer" type="submit" class="btn btn-danger ms-3">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="modalModifier" class="modal-modifier">                          <!--modal en html modifier-->
+    <div class="modal-contentM">
+      <div class="bg-danger text-light p-3 mr-5">
+        <span id="fermerModifier" class="close-btn btn ms-3 border-light text-light mr-5"><img src="assets/images/icons/back-arrow.png" alt="Retour au produit">Retour</span>
+        <h2 id="titreModal">Modifier un produit</h2>
+      </div>
+      <div class="container">
+        <form id="formModifier">
+          <div class="mb-3">
+            <label for="reference" class="form-label">Référence</label>
+            <input type="text" id="referenceModifier" class="form-control" disabled/>
+          </div>
+          <div class="mb-3">
+            <label for="categorie" class="form-label">Catégorie</label>
+            <select id="categorieModifier" class="form-select">
+              <option value="">Choisir la catégorie</option>
+              <option value="tablettes">Tablettes</option>
+              <option value="Téléphones">Téléphones</option>
+              <option value="télévisions">Télévisions</option>
+              <option value="Audio">Audio</option>
+              <option value="Appareils photo">Appareils photo</option>
+              <option value="Ordinateurs de bureau">Ordinateurs de bureau</option>
+              <option value="Ordinateurs portables">Ordinateurs portables</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="libelle" class="form-label">Libellé</label>
+            <input type="text" id="libelleModifier" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="prix" class="form-label">Prix de vente conseillé</label>
+            <input type="text" id="prixModifier" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="photo" class="form-label">Photos</label>
+            <input type="text" id="photoModifier" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" id="descriptionModifier" class="form-control" />
+          </div>
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="enStockModifier" />
+            <label class="form-check-label" for="enStock">En stock</label>
+            <input type="text" id="stockAjouter" class="form-control form-control-sm w-auto" disabled/>
+          </div>
+          <button id="enregistrer" type="submit" class="btn btn-danger ms-3">Enregistrer</button>
+        </form>
+    </div>
+    </div>
+  </div>
+
+  <div id="modalProduit" class="modal-produit">                          <!--modal en html modifier-->
+    <div class="modal-contentP">
+      <div class="bg-danger p-3 mb-5 text-light">
+        <span id="fermerProduit" class="close-btn btn ms-3 border-light text-light mr-5"><img src="assets/images/icons/back-arrow.png" alt="Retour au produit">Retour</span>
+        <h2 id="titreModal">Détail du produit</h2>
+      </div>
+      <div class="container">
+        <div id="productDetails"></div>
+      </div>
+    </div>
+  </div>
+   
+</body>
+<script src="scripts.js"></script>
+</html>
